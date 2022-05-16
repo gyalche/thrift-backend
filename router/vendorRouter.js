@@ -61,5 +61,5 @@ router.post('/vendor/login', function(req, res){
         })
     })
 })
-fsdfasdf
+
 export default router;

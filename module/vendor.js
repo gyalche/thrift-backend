@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const vendor=mongoose.model('vendor',{
+    
     userName:{
         type:String,
     },
@@ -15,6 +16,11 @@ const vendor=mongoose.model('vendor',{
     },
     image:{
         type:String,
+    },
+    role:{
+        type:String,
+        enum:['customer', 'vendor'],
+        default:'vendor',
     }
 })
 

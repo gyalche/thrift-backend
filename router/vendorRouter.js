@@ -66,8 +66,7 @@ router.post('/vendor/login', function(req, res){
     })
 })
 
-<<<<<<< HEAD
-=======
+
 //image upload for vendor
 
 router.put('/vendor/profile', upload.single('image'), verifyVendor, function (req, res) {
@@ -131,5 +130,5 @@ router.get('/vendor/dashboard', verifyVendor, function(req, res){
     })
 })
 
->>>>>>> AUD
+
 export default router;

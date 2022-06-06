@@ -11,6 +11,9 @@ const productUpload=new mongoose.Schema({
     productName:{
         type:String,
     },
+    price:{ 
+        type:String,
+    },
     pimage:{
         type:String,
     },

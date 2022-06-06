@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import bcryptjs from "bcryptjs";
 import vendor from "../module/vendor.js";
 import express from "express";
-import { verifyVendor } from "../auth/auth.js";
+import {verifyVendor}  from "../auth/auth.js";
 import upload from '../file/file.js';
 const router=new express.Router();
 
@@ -95,11 +95,11 @@ router.put("/vendor/update",upload.single('profile'), verifyVendor, function(req
     const userName=req.body.userName;
     const phoneNumber=req.body.phoneNumber;
     const email=req.body.email;
-    const image=req.file.filename;
+    const image=req.body.image;
     const password=req.body.password;
     const role=req.body.role;
     bcryptjs.hash(password, 10, function(err, hashPasswords){
-        vendor.findOneAndUpdate({_id:vendorInfo.id},{
+        vendor.findOneAndUpdate({_id:req.vendorInfo._id},{
             userName:userName,
             phoneNumber:phoneNumber,
             email:email,

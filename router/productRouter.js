@@ -5,24 +5,27 @@ import upload from '../file/file.js';
 
 const router=new express.Router();
 
-router.post('/product/insert',upload.single('pimage'),verifyVendor, function(req, res){
+router.post('/product/insert', upload.single('pimage'),verifyVendor, function(req, res){
     const desc=req.body.desc;
     const uid=req.vendorInfo._id;
     const sellerName=req.body.sellerName;
     const productName=req.body.productName;
-    const pimage=req.file.filename;
+    const price=req.body.price;
+    const pimage=req.body.pimage;
 
-    const product=new productUpload({
+    const productData=new productUpload({
         desc:desc,
         uid:uid,
         sellerName:sellerName,
         productName:productName,
-        pimage:pimage
+        pimage:pimage,
+        price:price,
     })
-    product.save().then(function(){
+    console.log(productData);
+    productData.save().then(function(){
         res.json({msg:"sucessfully added", success:true});
-    }).catch(function(err){
-        res.json({msg:err})
+    }).catch(function(){
+        res.json({msg:"unable to add product"});
     })
 
 }),
@@ -73,12 +76,14 @@ router.put('/products/update/:pid',verifyVendor, function(req, res){
     const desc=req.body.desc;
     const pimage=req.file.filename;
     const sellerName=req.file.sellerName;
+    const price=req.body.price;
     const pid=req.params.pid;
 
     productUpload.findOneAndUpdate({_id:pid},{
         productName:productName,
         desc:desc,
         pimage:pimage,
+        price:price,
         sellerName:sellerName
     }).then(()=>{
         res.json({success:'sucess'})

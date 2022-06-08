@@ -6,6 +6,7 @@ import vendorRouter from './router/vendorRouter.js';
 //Api config
 const app=express();
 const port=process.env.PORT || 9000;
+const stripe=require("stripe")(process.env.STRIPE_SECRET_TEST)
 
 
 

@@ -16,7 +16,7 @@ router.post('/customer/register', function (req, res) {
 
     console.log(userName);
 
-    //must to rgister
+    
     customer.findOne({ userName: userName })
         .then(function (customerData) {
             if (customerData != null) {

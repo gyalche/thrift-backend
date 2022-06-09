@@ -4,7 +4,7 @@ import {verifyVendor} from '../auth/auth.js';
 import upload from '../file/file.js';
 
 const router=new express.Router();
-
+//porduct insert
 router.post('/product/insert', upload.single('pimage'),verifyVendor, function(req, res){
     const desc=req.body.desc;
     const uid=req.vendorInfo._id;

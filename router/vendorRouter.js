@@ -68,19 +68,19 @@ router.post('/vendor/login', function(req, res){
 
 
 
-
-// router.put('/vendor/profile', upload.single('image'), verifyVendor, function (req, res) {
-//     if(req.file==undefined){
-//         res.json({msg:"invalid format"})
-//     }
-//     else{
-//         vendor.findOneAndUpdate({_id:req.vendorInfo._id},{
-//             image:req.file.filename,
-//         }).then((data) => {
-//             res.json({msg:"sucessfully uploaded image", data})
-//         })
-//     }
-// })
+//profile pic
+router.put('/vendor/profile', upload.single('image'), verifyVendor, function (req, res) {
+    if(req.file==undefined){
+        res.json({msg:"invalid format"})
+    }
+    else{
+        vendor.findOneAndUpdate({_id:req.vendorInfo._id},{
+            image:req.file.filename,
+        }).then((data) => {
+            res.json({msg:"sucessfully uploaded image", data})
+        })
+    }
+})
 
 // delete account
 router.delete("/vendor/delete", verifyVendor, function(req, res){

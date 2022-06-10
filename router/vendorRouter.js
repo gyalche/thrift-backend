@@ -91,30 +91,30 @@ router.delete("/vendor/delete", verifyVendor, function(req, res){
 
 //update doner dashboard
 
-router.put("/vendor/update",upload.single('profile'), verifyVendor, function(req, res){
-    const userName=req.body.userName;
-    const phoneNumber=req.body.phoneNumber;
-    const email=req.body.email;
-    const image=req.body.image;
-    const password=req.body.password;
-    const role=req.body.role;
-    bcryptjs.hash(password, 10, function(err, hashPasswords){
-        vendor.findOneAndUpdate({_id:req.vendorInfo._id},{
-            userName:userName,
-            phoneNumber:phoneNumber,
-            email:email,
-            password:hashPasswords,
-            image:image,
-            role: role
+// router.put("/vendor/update",upload.single('profile'), verifyVendor, function(req, res){
+//     const userName=req.body.userName;
+//     const phoneNumber=req.body.phoneNumber;
+//     const email=req.body.email;
+//     const image=req.body.image;
+//     const password=req.body.password;
+//     const role=req.body.role;
+//     bcryptjs.hash(password, 10, function(err, hashPasswords){
+//         vendor.findOneAndUpdate({_id:req.vendorInfo._id},{
+//             userName:userName,
+//             phoneNumber:phoneNumber,
+//             email:email,
+//             password:hashPasswords,
+//             image:image,
+//             role: role
 
-        }).then((data) => {
-            res.json({success:"updated sucessfully",
-            data
-        })
-        })
-    })
+//         }).then((data) => {
+//             res.json({success:"updated sucessfully",
+//             data
+//         })
+//         })
+//     })
 
-})
+// })
 
 // show vendor dashboard
 router.get('/vendor/dashboard', verifyVendor, function(req, res){

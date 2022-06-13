@@ -60,15 +60,15 @@ router.get('/product/allproducts', function(req, res){
 })
 
 //view single product
-// router.get('/product/single/:pid', verifyVendor, function(req, res){
-//     productUpload.find({_id:req.params.pid})
-//                 .then(function(data){
-//                     res.json(data);
-//                 })
-//                 .catch(function(err){
-//                     res.json({msg:"something went wrong"})
-//                 })
-// })
+router.get('/product/single/:pid', verifyVendor, function(req, res){
+    productUpload.find({_id:req.params.pid})
+                .then(function(data){
+                    res.json(data);
+                })
+                .catch(function(err){
+                    res.json({msg:"something went wrong"})
+                })
+})
 //update product;
 
 router.put('/products/update/:pid',verifyVendor, function(req, res){

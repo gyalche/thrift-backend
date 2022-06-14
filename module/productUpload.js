@@ -17,6 +17,9 @@ const productUpload=new mongoose.Schema({
     pimage:{
         type:String,
     },
+    category:{
+        type:String
+    },
     sellerName:{
         type:String,
     }

@@ -12,6 +12,7 @@ router.post('/product/insert', upload.single('pimage'),verifyVendor, function(re
     const productName=req.body.productName;
     const price=req.body.price;
     const pimage=req.body.pimage;
+    const category=req.body.category;
 
     const productData=new productUpload({
         desc:desc,
@@ -20,6 +21,7 @@ router.post('/product/insert', upload.single('pimage'),verifyVendor, function(re
         productName:productName,
         pimage:pimage,
         price:price,
+        category:category,
     })
     console.log(productData);
     productData.save().then(function(){
@@ -77,6 +79,7 @@ router.put('/products/update/:pid',verifyVendor, function(req, res){
     const pimage=req.file.filename;
     const sellerName=req.file.sellerName;
     const price=req.body.price;
+    const category=req.body.category;
     const pid=req.params.pid;
 
     productUpload.findOneAndUpdate({_id:pid},{
@@ -84,7 +87,8 @@ router.put('/products/update/:pid',verifyVendor, function(req, res){
         desc:desc,
         pimage:pimage,
         price:price,
-        sellerName:sellerName
+        sellerName:sellerName,
+        category:category,
     }).then(()=>{
         res.json({success:'sucess'})
     })

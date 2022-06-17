@@ -1,15 +1,15 @@
 import multer from 'multer';
 
 //code to upload image
-const storage=multer.diskStorage({
-    destination:function(req, file, cb){
-        cb(null, "./gallary");
-    },
-    filename:function(req, file, cb){
-        // console.log(file);
-        cb(null, Date.now() + file.originalname);
-    }
-})
+// const storage=multer.diskStorage({
+//     destination:function(req, file, cb){
+//         cb(null, "./gallary");
+//     },
+//     filename:function(req, file, cb){
+//         // console.log(file);
+//         cb(null, Date.now() + file.originalname);
+//     }
+// })
 
 //now we need to check the file format;
 

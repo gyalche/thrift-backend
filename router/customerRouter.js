@@ -71,7 +71,6 @@ router.post('/customer/login', function (req, res) {
                 return;
             }
             //if username matches 
-
             const password = req.body.password;
             bcryptjs.compare(password, customerData.password, function (err, result) {
                 if (result == false) {

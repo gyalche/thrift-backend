@@ -4,7 +4,7 @@ import jwt from  'jsonwebtoken';
 import customer from '../module/customer.js';
 import express from 'express';
 import vendor from '../module/vendor.js';
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'; 
 // import res from 'express/lib/response';
 
 export const verifyCustomer=function(req, res, next){

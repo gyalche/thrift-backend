@@ -36,8 +36,8 @@ app.post("/payment", cors(), async (req, res) => {
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-// app.use(customerRouter);
-// app.use(vendorRouter);
+app.use(customerRouter);
+app.use(vendorRouter);
 app.listen(port,()=>{
     console.log(`running on localhost ${port}`);
 });
